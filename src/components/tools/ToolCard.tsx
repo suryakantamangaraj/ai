@@ -14,7 +14,7 @@ export function ToolCard({ tool, isFavorited = false }: { tool: AITool, isFavori
   const Icon = tool.icon && iconMap[tool.icon] ? iconMap[tool.icon] : Bot;
 
   return (
-    <div className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-950 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.3)]">
+    <div className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-950 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.3)] h-full">
       
       {/* Outer Glow Border Effect */}
       <div className="absolute inset-0 rounded-[2rem] border border-white/5 group-hover:border-blue-500/30 transition-colors duration-500" />
