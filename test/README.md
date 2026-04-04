@@ -1,3 +1,0 @@
-# Tests
-
-This directory is reserved for automated tests.
