@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Verse Prompts</title>
+  <meta name="description" content="Browse prompt resources, learn stronger prompt structure, and explore a curated prompt gallery in the AI Verse design language.">
+  <link rel="stylesheet" href="/tools-assets/wvw.css">
+  <link rel="stylesheet" href="/prompts-assets/prompts.css">
+  <style>
+    :root {
+      --ai-bg-base: #0b0d14;
+      --ai-bg-surface: rgba(16, 18, 30, 0.72);
+      --ai-bg-sidebar: rgba(17, 18, 30, 0.78);
+      --ai-glow-purple: rgba(166, 81, 251, 0.26);
+      --ai-glow-cyan: rgba(56, 189, 248, 0.18);
+      --ai-border: rgba(145, 108, 255, 0.18);
+    }
+
+    [data-theme="light"] {
+      --ai-bg-base: #eef3ff;
+      --ai-bg-surface: rgba(255, 255, 255, 0.78);
+      --ai-bg-sidebar: rgba(248, 250, 255, 0.82);
+      --ai-glow-purple: rgba(166, 81, 251, 0.14);
+      --ai-glow-cyan: rgba(56, 189, 248, 0.12);
+      --ai-border: rgba(109, 40, 217, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-store">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <a href="/prompts" class="wvw-badge">
+          <div class="wvw-badge-icon" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#6d28d9,#2563eb);color:#fff;font-size:18px;font-weight:700;">P</div>
+          <div class="wvw-badge-text">
+            <span class="wvw-badge-title">AI Verse Prompts</span>
+            <span class="wvw-badge-sub">Prompt systems, patterns, and examples</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-header">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Prompt resources" disabled>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active" href="/prompts">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></span>
+          Prompts Home
+        </a>
+        <a class="nav-item" href="/prompts/learn-prompts">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path></svg></span>
+          Learn Prompts
+        </a>
+        <a class="nav-item" href="/prompts/prompt-gallery">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg></span>
+          Prompt Gallery
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="theme-icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <span class="theme-label">Light Mode</span>
+        </button>
+        <a class="about-btn" href="/">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
+          <span>Back to AI Verse</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+      <button class="mobile-menu-fab" id="mobileMenuBtn" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="content-scroll">
+        <header class="page-header">
+          <div class="page-header-row">
+            <h1>AI Verse Prompts</h1>
+            <span class="see-all">Learn stronger prompting and browse reusable examples</span>
+          </div>
+        </header>
+
+        <section class="section">
+          <div class="prompts-hero">
+            <div class="prompts-hero-copy">
+              <div class="prompts-kicker">Prompt Design System</div>
+              <h2 class="prompts-hero-title">Write prompts that are clearer, more reliable, and easier to reuse.</h2>
+              <p class="prompts-hero-text">This section gives you two focused entry points: one for learning the mechanics of prompt writing and another for browsing finished examples you can adapt for real work. Everything stays in the AI Verse visual language so it feels like a native extension of the landing experience.</p>
+            </div>
+            <div class="prompts-hero-side">
+              <div class="hero-stat-list">
+                <div class="hero-stat">
+                  <div class="hero-stat-value">2</div>
+                  <div class="hero-stat-label">Action Paths</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat-value">3</div>
+                  <div class="hero-stat-label">Prompt Routes</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat-value">100%</div>
+                  <div class="hero-stat-label">Landing-Page Styling</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <h2>Action Items</h2>
+            <span class="see-all">Choose a path</span>
+          </div>
+          <div class="prompt-actions">
+            <a class="prompt-card" href="/prompts/learn-prompts">
+              <div class="prompt-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="prompt-card-title">Learn Prompts</div>
+                <div class="prompt-card-text">Start with foundations like role-setting, context framing, output constraints, examples, and iterative refinement.</div>
+              </div>
+              <div class="prompt-card-link">Open learning track <span>→</span></div>
+            </a>
+
+            <a class="prompt-card" href="/prompts/prompt-gallery">
+              <div class="prompt-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                  <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                  <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+                </svg>
+              </div>
+              <div>
+                <div class="prompt-card-title">Prompt Gallery</div>
+                <div class="prompt-card-text">Browse finished prompt patterns for research, coding, writing, design, and operational workflows.</div>
+              </div>
+              <div class="prompt-card-link">Browse prompt examples <span>→</span></div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="/prompts-assets/prompts.js"></script>
+</body>
+</html>

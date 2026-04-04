@@ -1,4 +1,10 @@
 (function () {
+  function removeLegacyLinks() {
+    document.querySelectorAll('a[href="/weekly"], a[href="/adams-list"]').forEach((link) => {
+      link.remove();
+    });
+  }
+
   function setLabel(link, text) {
     const textNode = [...link.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
     if (textNode) {
@@ -15,20 +21,27 @@
     link.textContent = text;
   }
 
+  function insertSiblingLink(anchor, href, label) {
+    const container = anchor.parentElement;
+    if (!container || container.querySelector(`a[href="${href}"]`)) return;
+
+    const clone = anchor.cloneNode(true);
+    clone.href = href;
+    clone.removeAttribute("aria-current");
+    setLabel(clone, label);
+    anchor.insertAdjacentElement("afterend", clone);
+  }
+
   function injectToolsLink() {
     // The mirrored homepage is bundled/minified, so we extend the
     // header after render instead of trying to rewrite the bundle.
+    removeLegacyLinks();
     const anchors = [...document.querySelectorAll('a[href="/about"], a[href="/compare"], a[href="/weekly"], a[href="/lab"]')];
 
     anchors.forEach((anchor) => {
-      const container = anchor.parentElement;
-      if (!container || container.querySelector('a[href="/tools"]')) return;
-
-      const clone = anchor.cloneNode(true);
-      clone.href = "/tools";
-      clone.removeAttribute("aria-current");
-      setLabel(clone, "Tools");
-      anchor.insertAdjacentElement("afterend", clone);
+      insertSiblingLink(anchor, "/tools", "Tools");
+      insertSiblingLink(anchor, "/prompts", "Prompts");
+      insertSiblingLink(anchor, "/chat", "Chat");
     });
   }
 

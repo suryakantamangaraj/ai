@@ -86,10 +86,42 @@
   <meta name="twitter:title" content="AI Verse - Ultimate Directory of AI Tools &amp; Software | Compare Top AI Platforms">
   <meta property="og:description" content="Discover the best AI tools and software. Compare features, prices, and reviews of 1000+ artificial intelligence platforms. Find ChatGPT, Midjourney, and more top AI solutions for your business.">
   <meta name="twitter:description" content="Discover the best AI tools and software. Compare features, prices, and reviews of 1000+ artificial intelligence platforms. Find ChatGPT, Midjourney, and more top AI solutions for your business.">
-  <script type="module" crossorigin src="/assets/index-CE4nReIb.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-4uVQDGgW.css">
 <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script>
-<script defer src="/header-tools-link.js"></script></head>
+<script defer src="/header-tools-link.js"></script>
+  <script>
+    window.__AIVERSE_CUSTOM_ROUTE__ = (function (pathname) {
+      var customRoutes = [
+        "/tools",
+        "/prompts",
+        "/prompts/prompts-gallery",
+        "/prompts/prompt-gallery",
+        "/prompts/prompts-learn",
+        "/prompts/learn-prompts",
+        "/chat"
+      ];
+      return customRoutes.indexOf(pathname) !== -1;
+    })(window.location.pathname);
+
+    if (window.__AIVERSE_CUSTOM_ROUTE__) {
+      var customStylesheet = document.createElement("link");
+      customStylesheet.rel = "stylesheet";
+      customStylesheet.href = "/custom-routes.css";
+      document.head.appendChild(customStylesheet);
+
+      var customScript = document.createElement("script");
+      customScript.src = "/custom-routes.js";
+      customScript.defer = true;
+      document.head.appendChild(customScript);
+    } else {
+      var appScript = document.createElement("script");
+      appScript.type = "module";
+      appScript.crossOrigin = "";
+      appScript.src = "/assets/index-CE4nReIb.js";
+      document.head.appendChild(appScript);
+    }
+  </script>
+  </head>
 
   <body>
     <div id="root"></div>

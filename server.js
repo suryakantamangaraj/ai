@@ -71,10 +71,16 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Reserve the exact /tools path for the custom landing page while
-  // still letting the mirrored SPA handle /tools/:slug routes itself.
-  if (pathname === "/tools" || pathname === "/tools/") {
-    sendFile(res, path.join(rootDir, "tools.html"));
+  // Retire removed sections instead of letting the mirrored SPA serve them.
+  if (
+    pathname === "/weekly" ||
+    pathname === "/weekly/" ||
+    pathname === "/adams-list" ||
+    pathname === "/adams-list/" ||
+    pathname.startsWith("/adams-list/")
+  ) {
+    res.writeHead(302, { Location: "/" });
+    res.end();
     return;
   }
 

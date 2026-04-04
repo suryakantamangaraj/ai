@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Verse Chat</title>
+  <meta name="description" content="A ChatGPT/Gemini-style chat interface inside AI Verse with the landing page atmosphere and a polished multi-panel layout.">
+  <link rel="stylesheet" href="/chat-assets/chat.css">
+</head>
+<body>
+  <div class="chat-shell">
+    <aside class="chat-sidebar" id="chatSidebar">
+      <div class="chat-sidebar-top">
+        <div class="chat-brand">
+          <div class="chat-brand-mark">AI</div>
+          <div>
+            <div class="chat-brand-title">AI Verse Chat</div>
+            <div class="chat-brand-sub">ChatGPT / Gemini style workspace</div>
+          </div>
+        </div>
+
+        <button class="chat-button" type="button">
+          <span>+</span>
+          <span>New Chat</span>
+        </button>
+
+        <div class="chat-link-grid">
+          <a class="chat-link" href="/">Back to AI Verse</a>
+          <a class="chat-link" href="/tools">Browse Tools</a>
+          <a class="chat-link" href="/prompts">Explore Prompts</a>
+        </div>
+      </div>
+
+      <div class="chat-history">
+        <div class="chat-history-title">Recent Chats</div>
+        <a class="chat-history-item active" href="/chat">
+          <strong>Landing page redesign ideas</strong>
+          <span>Visual hierarchy, hero copy, CTA refinement</span>
+        </a>
+        <a class="chat-history-item" href="/chat">
+          <strong>Prompt library structure</strong>
+          <span>Taxonomy, filters, contributor workflow</span>
+        </a>
+        <a class="chat-history-item" href="/chat">
+          <strong>Product positioning notes</strong>
+          <span>Sharper ICP, messaging options, risks</span>
+        </a>
+        <a class="chat-history-item" href="/chat">
+          <strong>Research synthesis</strong>
+          <span>Five takeaways from AI tools market scan</span>
+        </a>
+      </div>
+
+      <div class="chat-sidebar-footer">
+        <button class="chat-theme-toggle" id="themeToggle" type="button">
+          <span class="theme-label">Light Mode</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="chat-overlay" id="chatOverlay"></div>
+
+    <main class="chat-main">
+      <header class="chat-topbar">
+        <button class="chat-mobile-toggle" id="mobileMenuBtn" type="button" aria-label="Open sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <div>
+          <h1>AI Verse Chat</h1>
+          <p>Polished assistant UI with the landing page glow treatment.</p>
+        </div>
+      </header>
+
+      <section class="chat-conversation">
+        <div class="chat-intro">
+          <h2>What can I help you build today?</h2>
+          <p>Use this as a premium, front-end-only chat surface for demos, concept validation, and future backend integration. It borrows the clarity of ChatGPT and Gemini while staying visually native to AI Verse.</p>
+        </div>
+
+        <div class="chat-suggestions">
+          <button class="chat-chip" type="button" data-prompt="Help me compare the top AI tools for startup founders in a simple table.">
+            <span class="chat-chip-title">Compare AI Tools</span>
+            <span class="chat-chip-text">Generate a fast comparison table for tools by use case, pricing, and strengths.</span>
+          </button>
+          <button class="chat-chip" type="button" data-prompt="Draft a landing page hero for an AI prompt marketplace targeted at solo founders.">
+            <span class="chat-chip-title">Write Landing Copy</span>
+            <span class="chat-chip-text">Create premium hero copy, subheadline, and CTA options.</span>
+          </button>
+          <button class="chat-chip" type="button" data-prompt="Review this product idea and tell me the biggest risks, assumptions, and next steps.">
+            <span class="chat-chip-title">Critique an Idea</span>
+            <span class="chat-chip-text">Ask for assumptions, risks, and practical next steps.</span>
+          </button>
+          <button class="chat-chip" type="button" data-prompt="Turn these rough notes into a structured prompt library taxonomy.">
+            <span class="chat-chip-title">Structure a Prompt Library</span>
+            <span class="chat-chip-text">Transform loose ideas into categories and information architecture.</span>
+          </button>
+        </div>
+
+        <div class="chat-message">
+          <div class="chat-avatar assistant">AI</div>
+          <div class="chat-bubble assistant">
+            <p>I can help with product strategy, prompt design, tool comparisons, copywriting, and UX direction.</p>
+            <p>If you want this page connected to a real model later, this layout is already set up in a way that can map cleanly to streamed assistant/user messages.</p>
+          </div>
+        </div>
+
+        <div class="chat-message">
+          <div class="chat-avatar user">You</div>
+          <div class="chat-bubble user">
+            <p>Help me design a premium AI tools directory that feels more curated than a generic list.</p>
+          </div>
+        </div>
+
+        <div class="chat-message">
+          <div class="chat-avatar assistant">AI</div>
+          <div class="chat-bubble assistant">
+            <p>Start by treating curation as the product, not just the inventory.</p>
+            <ul>
+              <li>Show fewer, higher-confidence recommendations before showing the long tail.</li>
+              <li>Group tools by user intent, such as “ship faster,” “research faster,” or “create visuals.”</li>
+              <li>Use editorial notes so every featured tool feels selected, not dumped into a database.</li>
+              <li>Give comparison views and prompt examples so the directory becomes actionable.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="chat-composer-wrap">
+        <div class="chat-composer">
+          <textarea id="chatInput" placeholder="Message AI Verse Chat..."></textarea>
+          <div class="chat-composer-footer">
+            <div class="chat-tools">
+              <span class="chat-tool">Deep Research</span>
+              <span class="chat-tool">Prompt Help</span>
+              <span class="chat-tool">Product Critique</span>
+            </div>
+            <button class="chat-send" type="button">
+              <span>Send</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/chat-assets/chat.js"></script>
+</body>
+</html>
