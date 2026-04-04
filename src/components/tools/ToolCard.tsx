@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Bot, Book, BookOpen, Code, Code2, FileText, Film, Headphones, Image, ImageIcon, Layers, MessageSquare, Mic, MonitorPlay, Music, Presentation, Search, Terminal, Video } from 'lucide-react';
+import { ArrowRight, Bot, Book, BookOpen, Code, Code2, FileText, Film, Headphones, Image, ImageIcon, Layers, MessageSquare, Mic, MonitorPlay, Music, Presentation, Search, Terminal, Video, Star } from 'lucide-react';
 import type { AITool } from '@/types';
 
 const iconMap: Record<string, React.ElementType> = {
@@ -13,62 +13,83 @@ import { FavoriteButton } from './FavoriteButton';
 export function ToolCard({ tool, isFavorited = false }: { tool: AITool, isFavorited?: boolean }) {
   const Icon = tool.icon && iconMap[tool.icon] ? iconMap[tool.icon] : Bot;
 
-  return (
-    <div className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-950 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.3)] h-full">
-      
-      {/* Outer Glow Border Effect */}
-      <div className="absolute inset-0 rounded-[2rem] border border-white/5 group-hover:border-blue-500/30 transition-colors duration-500" />
-      
-      {/* Inner Top Edge Glow */}
-      <div className="absolute inset-x-0 -top-px h-px w-1/2 mx-auto bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-      
-      {/* Background glow on hover */}
-      <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(circle at 50% 0%, rgba(59,130,246,0.1) 0%, transparent 70%)' }} />
+  const getGradient = (category: string) => {
+    switch (category) {
+      case 'Text': return 'from-blue-500 to-indigo-600';
+      case 'Image': return 'from-cyan-500 to-blue-600';
+      case 'Code': return 'from-emerald-500 to-teal-600';
+      case 'Video': return 'from-violet-500 to-purple-600';
+      case 'Audio': return 'from-pink-500 to-rose-600';
+      default: return 'from-zinc-500 to-zinc-700';
+    }
+  };
 
-      <div className="relative z-10">
-        <div className="mb-5 flex items-center justify-between">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-800/80 shadow-inner ring-1 ring-white/10 group-hover:ring-white/20 transition-all">
-            <Icon className="h-6 w-6 text-zinc-100" />
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-blue-400">
-              {tool.pricing}
-            </span>
-            <FavoriteButton toolId={tool.id} initialFavorited={isFavorited} />
-          </div>
+  const primaryCategory = tool.categories[0] || 'All';
+  const gradientClass = getGradient(primaryCategory as string);
+
+  return (
+    <div className="group relative flex items-center gap-6 bg-zinc-900/40 border border-white/5 rounded-3xl p-5 transition-all duration-500 hover:bg-zinc-900/60 hover:border-blue-500/20 hover:shadow-[0_0_30px_rgba(37,99,235,0.1)] overflow-hidden">
+      {/* Background Glow on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+      {/* Icon Section - Left */}
+      <div className={`relative shrink-0 flex h-20 w-20 items-center justify-center rounded-[1.5rem] bg-gradient-to-br ${gradientClass} shadow-2xl transition-transform duration-700 group-hover:scale-105 group-hover:rotate-2`}>
+        <Icon className="h-10 w-10 text-white" />
+      </div>
+
+      {/* Content Section - Middle */}
+      <div className="flex-1 min-w-0 z-10">
+        <div className="flex items-center gap-3 mb-1">
+          <h3 className="text-xl font-bold text-white truncate group-hover:text-blue-400 transition-colors duration-300">
+            {tool.name}
+          </h3>
+          <span className={`px-2 py-0.5 rounded-lg border text-[10px] font-black uppercase tracking-widest ${
+            tool.pricing.toLowerCase() === 'free' 
+              ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' 
+              : tool.pricing.toLowerCase() === 'paid'
+              ? 'bg-amber-500/10 border-amber-500/20 text-amber-400'
+              : 'bg-blue-500/10 border-blue-500/20 text-blue-400'
+          }`}>
+            {tool.pricing}
+          </span>
         </div>
         
-        <h3 className="mb-2 text-xl font-bold text-white transition-colors group-hover:text-blue-400">{tool.name}</h3>
-        <p className="mb-5 text-sm leading-relaxed text-zinc-400 line-clamp-3">{tool.description}</p>
-        
-        <div className="mb-6 flex flex-wrap gap-2">
-          {tool.categories.map((category) => (
-            <span 
-              key={category} 
-              className="rounded-lg bg-white/5 px-2.5 py-1 text-xs font-medium text-zinc-300 ring-1 ring-white/10"
-            >
-              {category}
-            </span>
-          ))}
+        <p className="text-sm text-zinc-400 line-clamp-2 leading-relaxed mb-3 pr-4">
+          {tool.description}
+        </p>
+
+        <div className="flex items-center gap-4 text-[11px] font-bold text-zinc-500">
+          <div className="flex items-center gap-1.5 px-2 py-1 bg-white/5 rounded-md hover:bg-white/10 transition-colors">
+            <Layers className="h-3 w-3" />
+            <span>{primaryCategory}</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <Star className="h-3 w-3 text-amber-500" />
+            <span>Top Pick</span>
+          </div>
         </div>
       </div>
 
-      <div className="relative z-10 flex items-center justify-between pt-4 border-t border-white/10">
-        <Link 
-          href={`/tools/${tool.id}`}
-          className="text-sm font-medium text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"
-        >
-          View Details
-        </Link>
+      {/* Action Section - Right */}
+      <div className="flex flex-col gap-2 shrink-0 z-10">
+        <div className="flex justify-end mb-2">
+          <FavoriteButton toolId={tool.id} initialFavorited={isFavorited} />
+        </div>
         <a 
           href={tool.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+          className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-2.5 text-xs font-black text-black hover:bg-blue-500 hover:text-white transition-all duration-300 uppercase tracking-tighter"
         >
-          Visit Site 
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          Visit Site
+          <ArrowRight className="h-3 w-3" />
         </a>
+        <Link 
+          href={`/tools/${tool.id}`}
+          className="flex items-center justify-center rounded-xl bg-white/5 border border-white/10 px-5 py-2.5 text-xs font-black text-white hover:bg-white/10 transition-all duration-300 uppercase tracking-tighter"
+        >
+          Details
+        </Link>
       </div>
     </div>
   );

@@ -66,7 +66,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} dark`}
     >
-      <body className="min-h-screen flex flex-col antialiased">
+      <body 
+        className="min-h-screen flex flex-col antialiased"
+        suppressHydrationWarning
+      >
         <Providers>
           <Header />
           <main className="flex-1 pt-24">{children}</main>

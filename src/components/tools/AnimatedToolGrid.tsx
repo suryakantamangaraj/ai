@@ -6,7 +6,7 @@ export function AnimatedToolGrid({ children }: { children: React.ReactNode }) {
   return (
     <motion.div 
       layout
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-6"
     >
       <AnimatePresence mode="popLayout">
         {children}
@@ -15,7 +15,13 @@ export function AnimatedToolGrid({ children }: { children: React.ReactNode }) {
   )
 }
 
-export function AnimatedToolCardWrapper({ children, id }: { children: React.ReactNode, id: string }) {
+export function AnimatedToolCardWrapper({ 
+  children, 
+  id
+}: { 
+  children: React.ReactNode, 
+  id: string
+}) {
   return (
     <motion.div
       layout

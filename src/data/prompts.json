@@ -1,0 +1,56 @@
+[
+  {
+    "id": "content-rewriter-1",
+    "title": "Professional Content Rewriter",
+    "description": "Rewrite any text to be more professional, clear, and concise while maintaining the original meaning.",
+    "prompt": "Rewrite the following text to be more professional, clear, and concise. Ensure the tone is appropriate for a business environment and the main points are preserved: [TEXT]",
+    "category": "Writing",
+    "tags": ["Professional", "Rewrite", "Business"],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": "code-debugger-1",
+    "title": "Python Debugging Assistant",
+    "description": "Expert python debugger that finds logical errors and suggests optimizations with explanations.",
+    "prompt": "Analyze the following Python code for logical errors, performance bottlenecks, and potential bugs. Provide a detailed explanation of the issues and suggest optimized versions: [CODE]",
+    "category": "Programming",
+    "tags": ["Python", "Debug", "Optimization"],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": "data-summarizer-1",
+    "title": "Complex Data Summarizer",
+    "description": "Transform complex datasets or long reports into a structured executive summary with key takeaways.",
+    "prompt": "Summarize the following data/report into an executive summary. Focus on key metrics, main findings, and actionable takeaways. Use bullet points for readability: [DATA]",
+    "category": "Analysis",
+    "tags": ["Summary", "Data", "Business"],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": "creative-story-starter-1",
+    "title": "Sci-Fi Universe Builder",
+    "description": "Generate a unique sci-fi setting with world-building rules, technological level, and major conflicts.",
+    "prompt": "Create a detailed sci-fi world setting. Include its name, atmospheric conditions, technological advancement level (0-3 Kardashev scale), and the primary conflict currently facing its inhabitants.",
+    "category": "Creative",
+    "tags": ["Sci-Fi", "World Building", "Storytelling"],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": "marketing-copy-1",
+    "title": "Social Media Ad Copy Generator",
+    "description": "Create high-converting social media ad copy for multiple platforms using a specific brand voice.",
+    "prompt": "Generate three variations of high-converting social media ad copy for [PRODUCT/SERVICE]. The brand voice is [TONE]. Platforms: Instagram, LinkedIn, and X (Twitter). Include relevant hashtags.",
+    "category": "Marketing",
+    "tags": ["Ads", "Copywriting", "Growth"],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": "sql-expert-1",
+    "title": "SQL Query Optimizer",
+    "description": "Analyze complex SQL queries and rewrite them for better performance and readability.",
+    "prompt": "Optimize the following SQL query for PostgreSQL. Explain why the changes improve performance (e.g., index usage, subquery elimination): [SQL]",
+    "category": "Programming",
+    "tags": ["SQL", "Database", "Performance"],
+    "difficulty": "Advanced"
+  }
+]

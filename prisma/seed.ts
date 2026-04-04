@@ -23,6 +23,7 @@ async function main() {
         icon: t.icon,
         pricing: t.pricing,
         categories: JSON.stringify(t.categories),
+        tags: t.tags ? JSON.stringify(t.tags) : null,
         featured: t.featured,
       },
       create: {
@@ -33,6 +34,7 @@ async function main() {
         icon: t.icon,
         pricing: t.pricing,
         categories: JSON.stringify(t.categories),
+        tags: t.tags ? JSON.stringify(t.tags) : null,
         featured: t.featured,
       },
     });

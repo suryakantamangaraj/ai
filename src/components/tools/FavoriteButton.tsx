@@ -24,8 +24,10 @@ export function FavoriteButton({
     } catch (e) {
       // Revert if error
       setIsFavorited(isFavorited)
-      // Ideally show a toast notification here
-      alert("Please log in to save tools!")
+      if (typeof window !== "undefined") {
+        const { signIn } = await import("next-auth/react")
+        signIn(undefined, { callbackUrl: window.location.href })
+      }
     } finally {
       setIsPending(false)
     }

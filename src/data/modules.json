@@ -1,0 +1,52 @@
+[
+  {
+    "id": "intro-1",
+    "title": "What is Prompt Engineering?",
+    "description": "An introduction to the field of prompt engineering, why it's important, and how it works.",
+    "content": "Prompt engineering is the process of crafting and optimizing inputs (prompts) to guide AI models, especially large language models (LLMs), to produce more accurate, relevant, and useful outputs. It involves understanding the model's architecture, training data, and behavioral characteristics to achieve specific goals efficiently. In this module, we'll explore the history of LLMs and basic interaction patterns.",
+    "order": 1,
+    "difficulty": "Beginner",
+    "duration": "5 min",
+    "topics": ["Definition", "LLM Basics", "Significance"]
+  },
+  {
+    "id": "foundation-1",
+    "title": "The Anatomy of a Perfect Prompt",
+    "description": "Break down the core components that make a prompt successful: Context, Instruction, Input Data, and Output Indicator.",
+    "content": "A high-quality prompt typically consists of four key elements: 1. **Instruction**: A specific task or directive for the model. 2. **Context**: External information or background. 3. **Input Data**: The data or text you want the model to process. 4. **Output Indicator**: Format or style requirements. Master these, and you can solve almost any problem with AI.",
+    "order": 2,
+    "difficulty": "Beginner",
+    "duration": "10 min",
+    "topics": ["Components", "Structure", "Clarity"]
+  },
+  {
+    "id": "technique-1",
+    "title": "Zero-Shot vs. Few-Shot Prompting",
+    "description": "Learn when to just ask (zero-shot) and when to provide examples (few-shot) for better model performance.",
+    "content": "Zero-shot prompting is when you ask the model to perform a task without any examples. Few-shot prompting involves providing a few demonstrations of the task before the final request. This module covers the 'in-context learning' capability of modern models and shows you how to curate effective examples to boost reliability.",
+    "order": 3,
+    "difficulty": "Intermediate",
+    "duration": "12 min",
+    "topics": ["Examples", "Reliability", "In-Context Learning"]
+  },
+  {
+    "id": "advanced-1",
+    "title": "Chain-of-Thought (CoT) Reasoning",
+    "description": "Unlock complex problem-solving by asking the model to 'think out loud' step-by-step.",
+    "content": "Chain-of-Thought (CoT) prompting enables models to decompose complex reasoning tasks into intermediate steps. By adding a simple instruction like 'Let's think step by step,' you can significantly improve performance on mathematical, symbolic, and multi-step logic problems. We'll dive into Zero-shot CoT and manual CoT techniques.",
+    "order": 4,
+    "difficulty": "Intermediate",
+    "duration": "15 min",
+    "topics": ["Reasoning", "Step-by-step", "Logic"]
+  },
+  {
+    "id": "expert-1",
+    "title": "Least-to-Most & Prompt Decomposition",
+    "description": "Strategies for tackling massive tasks by breaking them into smaller, manageable sub-prompts.",
+    "content": "For highly complex tasks, even CoT might fall short. Least-to-Most prompting breaks down a problem into a series of simpler subproblems that are solved one by one, where the output of one serves as the input to the next. Learn how to architect multi-stage prompts for building complex applications.",
+    "order": 5,
+    "difficulty": "Advanced",
+    "duration": "20 min",
+    "topics": ["Decomposition", "Multi-stage", "Orchestration"]
+  }
+]

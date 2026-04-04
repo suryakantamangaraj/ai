@@ -13,21 +13,21 @@
 - `[x]` Verify build + visual review
 
 ## Phase 2: AI Tools Directory
-- `[ ]` Create tools.json seed data
-- `[ ]` Build tools directory page with search/filter
-- `[ ]` Build tool detail page
-- `[ ]` Build tool card components
+- `[x]` Create tools.json seed data
+- `[x]` Build tools directory page with search/filter
+- `[x]` Build tool detail page
+- `[x]` Build tool card components
 
 ## Phase 3: Prompts Section
-- `[ ]` Build learn-prompt page with modules
-- `[ ]` Build prompt-templates gallery
-- `[ ]` Create prompt template data
+- `[x]` Build learn-prompt page with modules
+- `[x]` Build prompt-templates gallery
+- `[x]` Create prompt template data
 
 ## Phase 4: Chat Interface
-- `[ ]` Build chat page with model selector
-- `[ ]` Implement chat API route with Groq
-- `[ ]` Add "Refine Input" feature
-- `[ ]` Streaming + markdown rendering
+- `[x]` Build chat page with model selector
+- `[x]` Implement chat API route with Groq
+- `[x]` Add "Refine Input" feature
+- `[x]` Streaming + markdown rendering
 
 ## Phase 5: Auth & Database
 - `[ ]` Set up Neon + Drizzle schema

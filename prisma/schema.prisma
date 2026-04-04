@@ -63,6 +63,7 @@ model Tool {
   icon        String?
   pricing     String
   categories  String   // JSON string array for SQLite
+  tags        String?  // JSON string array for SQLite
   featured    Boolean  @default(false)
   
   favoritedBy Favorite[]
