@@ -1,0 +1,65 @@
+html[data-app-custom-route],
+html[data-app-custom-route] body {
+  min-height: 100%;
+}
+
+body[data-app-custom-route] {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  display: block !important;
+  user-select: auto !important;
+}
+
+body[data-app-custom-route]::before,
+body[data-app-custom-route]::after {
+  content: none !important;
+}
+
+.cr-default-route-stage {
+  width: min(1400px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 20px 0 48px;
+}
+
+.cr-default-route-host {
+  min-height: 60vh;
+}
+
+.cr-default-route-host .app-store,
+.cr-default-route-host .chat-shell,
+.cr-default-route-host .guide-shell {
+  max-width: 100%;
+}
+
+.cr-default-route-host .app-store {
+  min-height: clamp(720px, calc(100vh - 220px), 1180px);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.cr-default-route-host .chat-shell,
+.cr-default-route-host .guide-shell {
+  min-height: clamp(720px, calc(100vh - 220px), 1180px);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.cr-default-route-host .guide-announcement {
+  margin-bottom: 16px;
+  border-radius: 18px;
+}
+
+@media (max-width: 780px) {
+  .cr-default-route-stage {
+    width: min(100%, calc(100% - 16px));
+    padding: 16px 0 36px;
+  }
+
+  .cr-default-route-host .app-store,
+  .cr-default-route-host .chat-shell,
+  .cr-default-route-host .guide-shell {
+    min-height: 620px;
+    border-radius: 20px;
+  }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Gallery | AI Verse</title>
+  <meta name="description" content="A curated gallery of reusable prompt patterns for research, writing, coding, and product workflows.">
+  <link rel="stylesheet" href="/app/styles/shared-theme.css">
+  <link rel="stylesheet" href="/app/styles/tools.css">
+  <link rel="stylesheet" href="/app/styles/prompts.css">
+  <style>
+    :root {
+      --ai-bg-base: #0b0d14;
+      --ai-bg-surface: rgba(16, 18, 30, 0.72);
+      --ai-bg-sidebar: rgba(17, 18, 30, 0.78);
+      --ai-glow-purple: rgba(166, 81, 251, 0.26);
+      --ai-glow-cyan: rgba(56, 189, 248, 0.18);
+      --ai-border: rgba(145, 108, 255, 0.18);
+    }
+
+    [data-theme="light"] {
+      --ai-bg-base: #eef3ff;
+      --ai-bg-surface: rgba(255, 255, 255, 0.78);
+      --ai-bg-sidebar: rgba(248, 250, 255, 0.82);
+      --ai-glow-purple: rgba(166, 81, 251, 0.14);
+      --ai-glow-cyan: rgba(56, 189, 248, 0.12);
+      --ai-border: rgba(109, 40, 217, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-store">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <a href="/prompts" class="wvw-badge">
+          <div class="wvw-badge-icon" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#6d28d9,#2563eb);color:#fff;font-size:18px;font-weight:700;">P</div>
+          <div class="wvw-badge-text">
+            <span class="wvw-badge-title">Prompt Gallery</span>
+            <span class="wvw-badge-sub">Reusable prompt patterns</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item" href="/prompts">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></span>
+          Prompts Home
+        </a>
+        <a class="nav-item" href="/prompts/learn-prompts">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path></svg></span>
+          Learn Prompts
+        </a>
+        <a class="nav-item active" href="/prompts/prompt-gallery">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg></span>
+          Prompt Gallery
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="theme-icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <span class="theme-label">Light Mode</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+      <button class="mobile-menu-fab" id="mobileMenuBtn" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="content-scroll">
+        <div class="breadcrumb"><a href="/prompts">Prompts</a> <span>/</span> <span>Prompt Gallery</span></div>
+        <header class="page-header">
+          <div class="page-header-row">
+            <h1>Prompt Gallery</h1>
+            <span class="see-all">Ready-to-adapt prompt examples</span>
+          </div>
+        </header>
+
+        <section class="section">
+          <div class="prompt-gallery-grid">
+            <article class="prompt-example">
+              <h3>Research Brief Generator</h3>
+              <p>Create a source-grounded brief from scattered notes, docs, and goals.</p>
+              <div class="prompt-code">You are a research analyst.
+
+Use the notes below to produce:
+1. a concise summary
+2. the three biggest insights
+3. open questions
+4. recommended next steps
+
+Keep the tone professional and avoid inventing facts.</div>
+            </article>
+
+            <article class="prompt-example">
+              <h3>Landing Page Copy Prompt</h3>
+              <p>Generate homepage copy with clear positioning, proof, and CTA structure.</p>
+              <div class="prompt-code">You are a conversion-focused SaaS copywriter.
+
+Write:
+- one headline
+- one subheadline
+- three value props
+- one CTA
+
+Audience: early-stage founders
+Tone: premium, direct, modern</div>
+            </article>
+
+            <article class="prompt-example">
+              <h3>Code Review Assistant</h3>
+              <p>Push the model toward risk detection instead of generic praise.</p>
+              <div class="prompt-code">Review the following code like a senior engineer.
+
+Prioritize:
+- bugs
+- regressions
+- edge cases
+- missing tests
+
+Output findings first, then short recommendations.</div>
+            </article>
+
+            <article class="prompt-example">
+              <h3>Meeting Notes to Action Plan</h3>
+              <p>Turn raw discussion into a structured follow-up plan.</p>
+              <div class="prompt-code">Convert these meeting notes into:
+1. decisions made
+2. unresolved issues
+3. action items with owners
+4. deadlines
+
+If an owner is missing, mark it clearly as unassigned.</div>
+            </article>
+
+            <article class="prompt-example">
+              <h3>Design Critique Prompt</h3>
+              <p>Generate focused feedback on hierarchy, usability, and visual clarity.</p>
+              <div class="prompt-code">Act as a product design reviewer.
+
+Critique this interface in four sections:
+- hierarchy
+- clarity
+- interaction risk
+- visual polish
+
+Be specific. Suggest improvements, not just observations.</div>
+            </article>
+
+            <article class="prompt-example">
+              <h3>Prompt Refiner</h3>
+              <p>Use the model to strengthen another prompt before running the real task.</p>
+              <div class="prompt-code">Improve the prompt below.
+
+Your job:
+- remove ambiguity
+- add missing context
+- improve output formatting
+- keep the original intent
+
+Return both the rewritten prompt and a short explanation of changes.</div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="/app/scripts/prompts.js"></script>
+</body>
+</html>

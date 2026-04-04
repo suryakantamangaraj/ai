@@ -1,0 +1,149 @@
+{
+  "notes": {
+    "analytics_script": "/~flock.js",
+    "landing_shell": "/public/index.html",
+    "custom_route_loader": "/app/runtime/custom-routes.js"
+  },
+  "pages": [
+    {
+      "route": "/",
+      "type": "landing-spa",
+      "css": [
+        "/app/landing/styles/main.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/landing/runtime/core.js",
+        "/app/landing/runtime/bootstrap.js"
+      ]
+    },
+    {
+      "route": "/about",
+      "type": "landing-spa",
+      "css": [
+        "/app/landing/styles/main.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/landing/pages/about.js"
+      ]
+    },
+    {
+      "route": "/compare",
+      "type": "landing-spa",
+      "css": [
+        "/app/landing/styles/main.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/landing/pages/compare.js"
+      ]
+    },
+    {
+      "route": "/lab",
+      "type": "landing-spa",
+      "css": [
+        "/app/landing/styles/main.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/landing/pages/lab.js"
+      ]
+    },
+    {
+      "route": "/tools",
+      "type": "custom-route",
+      "html": "/app/routes/tools/index.html",
+      "css": [
+        "/app/styles/shared-theme.css",
+        "/app/styles/tools.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/runtime/custom-routes.js",
+        "/app/scripts/tools.js"
+      ]
+    },
+    {
+      "route": "/prompts",
+      "type": "custom-route",
+      "html": "/app/routes/prompts/index.html",
+      "css": [
+        "/app/styles/shared-theme.css",
+        "/app/styles/tools.css",
+        "/app/styles/prompts.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/runtime/custom-routes.js",
+        "/app/scripts/prompts.js"
+      ]
+    },
+    {
+      "route": "/prompts/prompts-gallery",
+      "aliases": [
+        "/prompts/prompt-gallery"
+      ],
+      "type": "custom-route",
+      "html": "/app/routes/prompts/gallery/index.html",
+      "css": [
+        "/app/styles/shared-theme.css",
+        "/app/styles/tools.css",
+        "/app/styles/prompts.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/runtime/custom-routes.js",
+        "/app/scripts/prompts.js"
+      ]
+    },
+    {
+      "route": "/prompts/prompts-learn",
+      "aliases": [
+        "/prompts/learn-prompts"
+      ],
+      "type": "custom-route",
+      "html": "/app/routes/prompts/learn/index.html",
+      "css": [
+        "/app/styles/shared-theme.css",
+        "/app/styles/prompts.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/runtime/custom-routes.js",
+        "/app/scripts/prompts.js"
+      ]
+    },
+    {
+      "route": "/chat",
+      "type": "custom-route",
+      "html": "/app/routes/chat/index.html",
+      "css": [
+        "/app/styles/chat.css"
+      ],
+      "js": [
+        "/~flock.js",
+        "/app/runtime/header-tools-link.js",
+        "/app/landing/runtime/loader.js",
+        "/app/runtime/custom-routes.js",
+        "/app/scripts/chat.js"
+      ]
+    }
+  ]
+}

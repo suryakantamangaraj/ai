@@ -1,0 +1,9 @@
+{
+  "name": "aiverse-tools-replica",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local static replica of aiversetools.com",
+  "scripts": {
+    "start": "node src/server.js"
+  }
+}

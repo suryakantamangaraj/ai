@@ -1,0 +1,40 @@
+:root {
+  --ai-bg-base: #0b0d14;
+  --ai-bg-surface: rgba(16, 18, 30, 0.72);
+  --ai-bg-sidebar: rgba(17, 18, 30, 0.78);
+  --ai-glow-purple: rgba(166, 81, 251, 0.26);
+  --ai-glow-cyan: rgba(56, 189, 248, 0.18);
+  --ai-border: rgba(145, 108, 255, 0.18);
+}
+
+[data-theme="light"] {
+  --ai-bg-base: #eef3ff;
+  --ai-bg-surface: rgba(255, 255, 255, 0.78);
+  --ai-bg-sidebar: rgba(248, 250, 255, 0.82);
+  --ai-glow-purple: rgba(166, 81, 251, 0.14);
+  --ai-glow-cyan: rgba(56, 189, 248, 0.12);
+  --ai-border: rgba(109, 40, 217, 0.12);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 12%, var(--ai-glow-purple), transparent 28%),
+    radial-gradient(circle at 88% 18%, var(--ai-glow-cyan), transparent 24%),
+    radial-gradient(circle at 76% 82%, rgba(139, 92, 246, 0.12), transparent 22%),
+    linear-gradient(180deg, #090b12 0%, var(--ai-bg-base) 48%, #090b12 100%);
+  background-attachment: fixed;
+}
+
+[data-theme="light"] body,
+[data-theme="light"] html {
+  background:
+    radial-gradient(circle at 12% 12%, var(--ai-glow-purple), transparent 28%),
+    radial-gradient(circle at 88% 18%, var(--ai-glow-cyan), transparent 24%),
+    radial-gradient(circle at 76% 82%, rgba(139, 92, 246, 0.08), transparent 22%),
+    linear-gradient(180deg, #f7f9ff 0%, var(--ai-bg-base) 48%, #eef2ff 100%);
+}
