@@ -3,8 +3,33 @@ const fs = require("fs");
 const path = require("path");
 
 const rootDir = __dirname;
+const envPath = path.join(rootDir, ".env");
+
+function loadDotEnv(filePath) {
+  if (!fs.existsSync(filePath)) return;
+
+  const envFile = fs.readFileSync(filePath, "utf8");
+
+  for (const rawLine of envFile.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith("#")) continue;
+
+    const separatorIndex = line.indexOf("=");
+    if (separatorIndex === -1) continue;
+
+    const key = line.slice(0, separatorIndex).trim();
+    const value = line.slice(separatorIndex + 1).trim().replace(/^['"]|['"]$/g, "");
+
+    if (key && process.env[key] === undefined) {
+      process.env[key] = value;
+    }
+  }
+}
+
+loadDotEnv(envPath);
+
 const port = Number(process.env.PORT || 3000);
-const host = "127.0.0.1";
+const host = process.env.HOST || "127.0.0.1";
 
 const contentTypes = {
   ".css": "text/css; charset=utf-8",
@@ -38,12 +63,16 @@ const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const pathname = decodeURIComponent(url.pathname);
 
+  // The mirrored analytics script expects this endpoint to exist,
+  // so we acknowledge requests without forwarding them anywhere.
   if (pathname === "/~api/analytics") {
     res.writeHead(204);
     res.end();
     return;
   }
 
+  // Reserve the exact /tools path for the custom landing page while
+  // still letting the mirrored SPA handle /tools/:slug routes itself.
   if (pathname === "/tools" || pathname === "/tools/") {
     sendFile(res, path.join(rootDir, "tools.html"));
     return;
@@ -64,6 +93,8 @@ const server = http.createServer((req, res) => {
       return;
     }
 
+    // Real asset misses should stay 404s; only extensionless routes
+    // should fall back to the mirrored single-page app shell.
     if (path.extname(pathname)) {
       res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
       res.end("Not found");
