@@ -44,6 +44,11 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (pathname === "/tools" || pathname === "/tools/") {
+    sendFile(res, path.join(rootDir, "tools.html"));
+    return;
+  }
+
   const requestedPath = path.join(rootDir, pathname);
   const safePath = path.normalize(requestedPath);
 

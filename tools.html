@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Verse Tools</title>
+  <meta name="description" content="A wvw.dev-inspired tools page for browsing standout AI products inside AI Verse.">
+  <link rel="stylesheet" href="/tools-assets/wvw.css">
+  <style>
+    :root {
+      --ai-bg-base: #0b0d14;
+      --ai-bg-surface: rgba(16, 18, 30, 0.72);
+      --ai-bg-sidebar: rgba(17, 18, 30, 0.78);
+      --ai-glow-purple: rgba(166, 81, 251, 0.26);
+      --ai-glow-cyan: rgba(56, 189, 248, 0.18);
+      --ai-border: rgba(145, 108, 255, 0.18);
+    }
+
+    [data-theme="light"] {
+      --ai-bg-base: #eef3ff;
+      --ai-bg-surface: rgba(255, 255, 255, 0.78);
+      --ai-bg-sidebar: rgba(248, 250, 255, 0.82);
+      --ai-glow-purple: rgba(166, 81, 251, 0.14);
+      --ai-glow-cyan: rgba(56, 189, 248, 0.12);
+      --ai-border: rgba(109, 40, 217, 0.12);
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 12% 12%, var(--ai-glow-purple), transparent 28%),
+        radial-gradient(circle at 88% 18%, var(--ai-glow-cyan), transparent 24%),
+        radial-gradient(circle at 76% 82%, rgba(139, 92, 246, 0.12), transparent 22%),
+        linear-gradient(180deg, #090b12 0%, var(--ai-bg-base) 48%, #090b12 100%);
+      background-attachment: fixed;
+    }
+
+    [data-theme="light"] body,
+    [data-theme="light"] html {
+      background:
+        radial-gradient(circle at 12% 12%, var(--ai-glow-purple), transparent 28%),
+        radial-gradient(circle at 88% 18%, var(--ai-glow-cyan), transparent 24%),
+        radial-gradient(circle at 76% 82%, rgba(139, 92, 246, 0.08), transparent 22%),
+        linear-gradient(180deg, #f7f9ff 0%, var(--ai-bg-base) 48%, #eef2ff 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(36px);
+    }
+
+    body::before {
+      top: 4rem;
+      left: -5rem;
+      width: 18rem;
+      height: 18rem;
+      border-radius: 999px;
+      background: rgba(166, 81, 251, 0.12);
+    }
+
+    body::after {
+      right: -4rem;
+      bottom: 10rem;
+      width: 16rem;
+      height: 16rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .app-store,
+    .content,
+    .content-scroll,
+    .sidebar {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sidebar {
+      background: var(--ai-bg-sidebar);
+      border-right-color: var(--ai-border);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 18px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    .content-scroll {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+        transparent;
+    }
+
+    .page-header,
+    .section,
+    .carousel {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-header::before {
+      content: "";
+      position: absolute;
+      inset: -1.25rem -1rem auto;
+      height: calc(100% + 2rem);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+        var(--ai-bg-surface);
+      border: 1px solid var(--ai-border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+      z-index: -1;
+    }
+
+    .page-header {
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-radius: 28px;
+    }
+
+    .featured-banner,
+    .card,
+    .app-row {
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .card,
+    .app-row {
+      border-color: var(--ai-border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)), var(--ai-bg-surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .app-row:hover,
+    .card:hover {
+      border-color: rgba(166, 81, 251, 0.28);
+      box-shadow: 0 22px 64px rgba(166, 81, 251, 0.12);
+    }
+
+    .section-header {
+      border-bottom-color: var(--ai-border);
+    }
+
+    @media (max-width: 900px) {
+      .page-header::before {
+        inset: -0.75rem -0.5rem auto;
+      }
+
+      .page-header {
+        padding: 0.875rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-store">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <a href="/tools" class="wvw-badge">
+          <div class="wvw-badge-icon" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#6d28d9,#2563eb);color:#fff;font-size:18px;font-weight:700;">AI</div>
+          <div class="wvw-badge-text">
+            <span class="wvw-badge-title">AI Verse Tools</span>
+            <span class="wvw-badge-sub">Inspired by wvw.dev</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-header">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search AI tools" id="searchInput">
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <div class="nav-item active" data-target="featured">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          </span>
+          Featured
+        </div>
+        <div class="nav-item" data-target="new">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          </span>
+          New & Noteworthy
+        </div>
+        <div class="nav-item" data-target="popular">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+          </span>
+          Popular
+        </div>
+        <div class="nav-item" data-target="builders">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </span>
+          Builder Picks
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="theme-icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <span class="theme-label">Light Mode</span>
+        </button>
+        <a class="about-btn" href="/">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
+          <span>Back to AI Verse</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+      <button class="mobile-menu-fab" id="mobileMenuBtn" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="content-scroll" id="contentScroll">
+        <div class="mobile-page-title">AI Verse Tools</div>
+
+        <header class="page-header">
+          <div class="page-header-row">
+            <h1>AI Verse Tools</h1>
+            <span class="see-all">A wvw.dev-inspired browsing experience</span>
+          </div>
+        </header>
+
+        <section class="carousel section" id="featured">
+          <div class="featured-banner tool-entry" data-terms="openai chatgpt writing coding research agent" style="background-image:linear-gradient(135deg,#111827 0%,#0f172a 45%,#022c22 100%);">
+            <div class="featured-content">
+              <div class="featured-label">Editor's Pick</div>
+              <div class="featured-title">ChatGPT leads the modern AI workspace.</div>
+              <div class="featured-subtitle">Research, writing, coding, image generation, and agentic workflows in one polished interface.</div>
+              <div class="featured-app-row">
+                <div class="featured-app-icon">◎</div>
+                <div class="featured-app-info">
+                  <div class="featured-app-name">ChatGPT</div>
+                  <div class="featured-app-sub">OpenAI • Web, desktop, mobile</div>
+                </div>
+                <a class="featured-get-btn" href="https://chatgpt.com" target="_blank" rel="noopener">View</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="new">
+          <div class="section-header">
+            <h2>New & Noteworthy</h2>
+            <span class="see-all">Fresh tools worth trying</span>
+          </div>
+          <div class="cards-grid">
+            <article class="card tool-entry" data-terms="cursor code editor ai coding developer">
+              <div class="card-image">
+                <div class="card-image-bg" style="background:linear-gradient(135deg,#111827,#1f2937,#374151)">
+                  <div class="card-icon-fallback">⌘</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-label">Developer Tool</div>
+                <div class="card-title">Cursor</div>
+                <div class="card-subtitle">AI-native editor for code completion, refactors, and repo-scale assistance.</div>
+              </div>
+            </article>
+
+            <article class="card tool-entry" data-terms="runway video image generation creative">
+              <div class="card-image">
+                <div class="card-image-bg" style="background:linear-gradient(135deg,#1f2937,#312e81,#1d4ed8)">
+                  <div class="card-icon-fallback">▶</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-label">Creative App</div>
+                <div class="card-title">Runway</div>
+                <div class="card-subtitle">Text, image, and video generation wrapped in a strong creator-first workflow.</div>
+              </div>
+            </article>
+
+            <article class="card tool-entry" data-terms="notebooklm research google notes podcast">
+              <div class="card-image">
+                <div class="card-image-bg" style="background:linear-gradient(135deg,#0f172a,#1d4ed8,#38bdf8)">
+                  <div class="card-icon-fallback">✦</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-label">Research Tool</div>
+                <div class="card-title">NotebookLM</div>
+                <div class="card-subtitle">Source-grounded summaries, Q&A, and audio over your own uploaded documents.</div>
+              </div>
+            </article>
+
+            <article class="card tool-entry" data-terms="perplexity search answer engine web research">
+              <div class="card-image">
+                <div class="card-image-bg" style="background:linear-gradient(135deg,#052e16,#065f46,#0f766e)">
+                  <div class="card-icon-fallback">∞</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-label">Answer Engine</div>
+                <div class="card-title">Perplexity</div>
+                <div class="card-subtitle">Fast web-grounded answers with citations, follow-ups, and research-friendly UX.</div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="popular">
+          <div class="section-header">
+            <h2>Popular AI Tools</h2>
+            <span class="see-all">High-signal picks for most workflows</span>
+          </div>
+          <div class="app-list">
+            <div class="app-row tool-entry" data-terms="claude anthropic writing code analysis">
+              <div class="app-icon">C</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">Claude</span></div>
+                <div class="app-subtitle">Long-context assistant for writing, analysis, and code reasoning.</div>
+                <div class="app-meta"><span class="app-meta-tag">Assistant</span><span class="app-meta-tag">Long Context</span></div>
+              </div>
+              <a class="get-btn" href="https://claude.ai" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="midjourney image art generation design">
+              <div class="app-icon">M</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">Midjourney</span></div>
+                <div class="app-subtitle">High-end image generation with a distinct visual style and strong prompting culture.</div>
+                <div class="app-meta"><span class="app-meta-tag">Image</span><span class="app-meta-tag">Creative</span></div>
+              </div>
+              <a class="get-btn" href="https://www.midjourney.com" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="elevenlabs voice speech dubbing audio">
+              <div class="app-icon">11</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">ElevenLabs</span></div>
+                <div class="app-subtitle">Voice generation, dubbing, and audio tools for product and media teams.</div>
+                <div class="app-meta"><span class="app-meta-tag">Audio</span><span class="app-meta-tag">Voice</span></div>
+              </div>
+              <a class="get-btn" href="https://elevenlabs.io" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="v0 vercel ui frontend react">
+              <div class="app-icon">v0</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">v0</span></div>
+                <div class="app-subtitle">Prompt-driven UI generation that fits modern frontend workflows well.</div>
+                <div class="app-meta"><span class="app-meta-tag">Frontend</span><span class="app-meta-tag">React</span></div>
+              </div>
+              <a class="get-btn" href="https://v0.dev" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="gamma deck slides docs presentation">
+              <div class="app-icon">G</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">Gamma</span></div>
+                <div class="app-subtitle">Presentation and doc generation that feels faster than traditional slide tools.</div>
+                <div class="app-meta"><span class="app-meta-tag">Productivity</span><span class="app-meta-tag">Decks</span></div>
+              </div>
+              <a class="get-btn" href="https://gamma.app" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="suno music audio song generation">
+              <div class="app-icon">S</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">Suno</span></div>
+                <div class="app-subtitle">Text-to-music generation with fast iteration for demos, content, and experiments.</div>
+                <div class="app-meta"><span class="app-meta-tag">Music</span><span class="app-meta-tag">Generative</span></div>
+              </div>
+              <a class="get-btn" href="https://suno.com" target="_blank" rel="noopener">View</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="builders">
+          <div class="section-header">
+            <h2>Builder Picks</h2>
+            <span class="see-all">Great for shipping products faster</span>
+          </div>
+          <div class="app-list">
+            <div class="app-row tool-entry" data-terms="bolt new fullstack app builder">
+              <div class="app-icon">B</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">Bolt</span></div>
+                <div class="app-subtitle">Rapid app prototyping with code generation and deployment-friendly output.</div>
+                <div class="app-meta"><span class="app-meta-tag">Builder</span><span class="app-meta-tag">Full Stack</span></div>
+              </div>
+              <a class="get-btn" href="https://bolt.new" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="replit agent coding cloud">
+              <div class="app-icon">R</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">Replit</span></div>
+                <div class="app-subtitle">Cloud development with AI assistance, previews, and collaborative editing.</div>
+                <div class="app-meta"><span class="app-meta-tag">Cloud IDE</span><span class="app-meta-tag">Agent</span></div>
+              </div>
+              <a class="get-btn" href="https://replit.com" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="lovable app builder design frontend">
+              <div class="app-icon">L</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">Lovable</span></div>
+                <div class="app-subtitle">Prompt-first app creation focused on clean product surfaces and quick iteration.</div>
+                <div class="app-meta"><span class="app-meta-tag">No Code</span><span class="app-meta-tag">UI</span></div>
+              </div>
+              <a class="get-btn" href="https://lovable.dev" target="_blank" rel="noopener">View</a>
+            </div>
+
+            <div class="app-row tool-entry" data-terms="github copilot coding completion">
+              <div class="app-icon">GH</div>
+              <div class="app-info">
+                <div class="app-name"><span class="app-name-text">GitHub Copilot</span></div>
+                <div class="app-subtitle">Inline suggestions, chat, and repo-aware coding inside familiar IDEs.</div>
+                <div class="app-meta"><span class="app-meta-tag">Code</span><span class="app-meta-tag">IDE</span></div>
+              </div>
+              <a class="get-btn" href="https://github.com/features/copilot" target="_blank" rel="noopener">View</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="empty-state" id="emptyState" hidden>
+          <div class="empty-state-icon">⌕</div>
+          <h3>No matching tools</h3>
+          <p>Try a broader search term like coding, video, research, or image.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="/tools-assets/tools-page.js"></script>
+</body>
+</html>
