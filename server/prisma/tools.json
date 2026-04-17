@@ -1,0 +1,581 @@
+[
+  {
+    "id": "1",
+    "name": "Cursor",
+    "description": "The AI-first code editor. Build software faster with AI.",
+    "longDescription": "Cursor is an AI-first code editor built from the ground up to make developers incredibly productive. It combines the power of large language models with a purpose-built IDE experience, featuring intelligent code completion, natural language editing, and deep codebase understanding. Cursor helps you write, refactor, and debug code faster than ever before.",
+    "icon": "⚡",
+    "category": "devtools",
+    "platform": "macOS",
+    "stars": 4250,
+    "forks": 820,
+    "price": "Free",
+    "featured": true,
+    "isNew": true,
+    "author": "Anysphere",
+    "tags": [
+      "AI",
+      "Code Editor",
+      "Developer"
+    ],
+    "language": "TypeScript",
+    "website": "https://cursor.sh",
+    "github": "https://github.com/getcursor/cursor",
+    "whatsNew": [
+      "Multi-file editing with AI",
+      "Codebase-wide context understanding",
+      "Built-in terminal with AI assistance",
+      "Custom AI model support",
+      "Vim and Emacs keybindings"
+    ],
+    "features": [
+      "AI-powered code completion and generation",
+      "Natural language code editing",
+      "Codebase-aware chat assistant",
+      "Multi-file refactoring",
+      "Integrated debugging tools",
+      "Extension marketplace compatibility"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "v0 by Vercel",
+    "description": "Generate UI components from text prompts using AI.",
+    "longDescription": "v0 is Vercel's generative UI tool that creates React components from text descriptions. Powered by AI, it generates production-ready code using shadcn/ui and Tailwind CSS. Simply describe the UI you want, and v0 will create it — complete with responsive design, accessibility, and modern best practices.",
+    "icon": "🎨",
+    "category": "web",
+    "platform": "Web",
+    "stars": 3800,
+    "forks": 450,
+    "price": "Free",
+    "featured": true,
+    "isNew": true,
+    "author": "Vercel",
+    "tags": [
+      "AI",
+      "UI",
+      "React"
+    ],
+    "language": "TypeScript",
+    "website": "https://v0.dev",
+    "whatsNew": [
+      "Full-page generation support",
+      "Interactive component previews",
+      "Export to Next.js projects",
+      "Custom theme support",
+      "Collaborative editing"
+    ],
+    "features": [
+      "Text-to-UI component generation",
+      "shadcn/ui and Tailwind CSS output",
+      "Responsive design by default",
+      "Accessible component patterns",
+      "One-click code export",
+      "Iterative refinement with AI"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Bolt.new",
+    "description": "Full-stack web apps in your browser with AI assistance.",
+    "longDescription": "Bolt.new by StackBlitz lets you build full-stack web applications entirely in your browser with AI assistance. It combines the power of WebContainers with AI to provide an instant development environment where you can prompt, run, edit, and deploy applications without any local setup.",
+    "icon": "🔩",
+    "category": "web",
+    "platform": "Web",
+    "stars": 3200,
+    "forks": 380,
+    "price": "Free",
+    "isNew": true,
+    "author": "StackBlitz",
+    "tags": [
+      "AI",
+      "Full-Stack",
+      "Browser"
+    ],
+    "language": "TypeScript",
+    "website": "https://bolt.new",
+    "github": "https://github.com/stackblitz/bolt.new",
+    "whatsNew": [
+      "Full-stack app generation",
+      "In-browser Node.js runtime",
+      "One-click deployment",
+      "Package management built-in",
+      "Real-time collaboration"
+    ],
+    "features": [
+      "Browser-based full-stack development",
+      "AI-assisted code generation",
+      "WebContainers for instant environments",
+      "Built-in package management",
+      "Deploy to production instantly",
+      "No local setup required"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Lovable",
+    "description": "Build beautiful web apps by chatting with AI.",
+    "longDescription": "Lovable is the AI-powered web app builder that turns conversations into production-ready applications. Simply describe what you want to build, and Lovable creates beautiful, functional web apps with proper architecture, responsive design, and modern best practices. It supports databases, authentication, and deployment out of the box.",
+    "icon": "💜",
+    "category": "web",
+    "platform": "Web",
+    "stars": 5100,
+    "forks": 620,
+    "price": "Free",
+    "featured": true,
+    "isNew": true,
+    "author": "Lovable",
+    "tags": [
+      "AI",
+      "No-Code",
+      "Web Apps"
+    ],
+    "language": "TypeScript",
+    "website": "https://lovable.dev",
+    "whatsNew": [
+      "Lovable Cloud backend integration",
+      "Built-in authentication system",
+      "Database management via chat",
+      "One-click publishing",
+      "GitHub sync support"
+    ],
+    "features": [
+      "Chat-to-app development",
+      "Automatic responsive design",
+      "Built-in backend with Lovable Cloud",
+      "Authentication and user management",
+      "Real-time preview",
+      "Production deployment"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Windsurf",
+    "description": "AI-powered IDE for building apps with Cascade.",
+    "longDescription": "Windsurf by Codeium is an AI-powered IDE that features Cascade, an advanced AI agent that can understand your entire codebase, execute multi-step tasks, and collaborate with you in real-time. It combines deep code understanding with powerful editing capabilities.",
+    "icon": "🏄",
+    "category": "devtools",
+    "platform": "macOS",
+    "stars": 2900,
+    "forks": 310,
+    "price": "Free",
+    "isNew": true,
+    "author": "Codeium",
+    "tags": [
+      "AI",
+      "IDE",
+      "Developer"
+    ],
+    "language": "TypeScript",
+    "website": "https://codeium.com/windsurf",
+    "whatsNew": [
+      "Cascade AI agent",
+      "Multi-file context awareness",
+      "Integrated terminal AI",
+      "Smart code refactoring",
+      "Real-time collaboration"
+    ],
+    "features": [
+      "Cascade AI agent for complex tasks",
+      "Full codebase understanding",
+      "Multi-file editing and refactoring",
+      "Integrated debugging",
+      "Extension ecosystem",
+      "Free tier available"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Replit Agent",
+    "description": "AI agent that builds full apps from descriptions.",
+    "longDescription": "Replit Agent is an AI-powered development agent that can build complete applications from natural language descriptions. It handles everything from setting up the project structure to writing code, installing dependencies, and deploying the final application.",
+    "icon": "🤖",
+    "category": "web",
+    "platform": "Web",
+    "stars": 2600,
+    "forks": 280,
+    "price": "$25/mo",
+    "author": "Replit",
+    "tags": [
+      "AI",
+      "Agent",
+      "Full-Stack"
+    ],
+    "language": "Python",
+    "website": "https://replit.com",
+    "whatsNew": [
+      "Autonomous app building",
+      "Automatic dependency management",
+      "Built-in hosting and deployment",
+      "Database integration",
+      "Multi-language support"
+    ],
+    "features": [
+      "Natural language to full application",
+      "Autonomous development workflow",
+      "Built-in hosting and deployment",
+      "Collaborative multiplayer editing",
+      "Integrated database tools",
+      "100+ language support"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Raycast AI",
+    "description": "Spotlight-like launcher with built-in AI capabilities.",
+    "longDescription": "Raycast is a blazingly fast, totally extendable launcher for macOS. With built-in AI capabilities, it lets you control your tools, manage your schedule, search documentation, and execute complex workflows — all from a simple keyboard shortcut. The AI features include smart text generation, translation, and custom AI commands.",
+    "icon": "🚀",
+    "category": "macos",
+    "platform": "macOS",
+    "stars": 4100,
+    "forks": 520,
+    "price": "$8/mo",
+    "featured": true,
+    "author": "Raycast",
+    "tags": [
+      "AI",
+      "Productivity",
+      "macOS"
+    ],
+    "language": "Swift",
+    "website": "https://raycast.com",
+    "github": "https://github.com/raycast/extensions",
+    "whatsNew": [
+      "AI-powered quick actions",
+      "Custom AI commands",
+      "Translation and summarization",
+      "Extension store with 1000+ extensions",
+      "Team collaboration features"
+    ],
+    "features": [
+      "Lightning-fast app launcher",
+      "Built-in AI assistant",
+      "Clipboard history management",
+      "Window management",
+      "Script commands and workflows",
+      "Extensive extension ecosystem"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Warp",
+    "description": "Modern AI-powered terminal for developers.",
+    "longDescription": "Warp is a modern terminal reimagined from the ground up with AI. It features intelligent command suggestions, natural language command generation, and a block-based UI that makes terminal output easy to understand and share. Built with Rust for blazing performance.",
+    "icon": "🌀",
+    "category": "cli",
+    "platform": "macOS",
+    "stars": 3500,
+    "forks": 410,
+    "price": "Free",
+    "author": "Warp",
+    "tags": [
+      "Terminal",
+      "AI",
+      "Developer"
+    ],
+    "language": "Rust",
+    "website": "https://warp.dev",
+    "whatsNew": [
+      "AI command suggestions",
+      "Natural language to shell commands",
+      "Block-based output UI",
+      "Shared workflows and notebooks",
+      "Team collaboration"
+    ],
+    "features": [
+      "AI-powered command generation",
+      "Block-based terminal output",
+      "Intelligent autocompletions",
+      "Shared workflows",
+      "Built with Rust for performance",
+      "Modern text editing experience"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Midjourney",
+    "description": "AI image generation with stunning artistic quality.",
+    "longDescription": "Midjourney is an independent research lab producing an AI program that creates images from textual descriptions. Known for its exceptional artistic quality and aesthetic output, Midjourney has become the go-to tool for designers, artists, and creatives looking to generate stunning visual content.",
+    "icon": "🖼️",
+    "category": "design",
+    "platform": "Web",
+    "stars": 8200,
+    "forks": 950,
+    "price": "$10/mo",
+    "featured": true,
+    "author": "Midjourney",
+    "tags": [
+      "AI",
+      "Image",
+      "Art"
+    ],
+    "language": "Python",
+    "website": "https://midjourney.com",
+    "whatsNew": [
+      "V6 model with photorealistic output",
+      "Improved text rendering in images",
+      "Style reference and consistency",
+      "Pan and zoom capabilities",
+      "Web-based editor"
+    ],
+    "features": [
+      "Text-to-image generation",
+      "Photorealistic and artistic styles",
+      "Style reference and tuning",
+      "Image upscaling and variations",
+      "Community showcase gallery",
+      "Discord and web interfaces"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Notion AI",
+    "description": "AI writing assistant integrated into Notion workspace.",
+    "longDescription": "Notion AI brings the power of artificial intelligence directly into your Notion workspace. It can help you write, brainstorm, summarize, translate, and organize your content without leaving the app. Seamlessly integrated into the Notion experience you already know and love.",
+    "icon": "📝",
+    "category": "writing",
+    "platform": "Web",
+    "stars": 6800,
+    "forks": 780,
+    "price": "$10/mo",
+    "author": "Notion",
+    "tags": [
+      "AI",
+      "Writing",
+      "Productivity"
+    ],
+    "language": "TypeScript",
+    "website": "https://notion.so",
+    "whatsNew": [
+      "Q&A across your workspace",
+      "Auto-fill database properties",
+      "Custom AI blocks",
+      "Meeting summary generation",
+      "Multi-language translation"
+    ],
+    "features": [
+      "AI writing and editing assistant",
+      "Content summarization",
+      "Brainstorming and ideation",
+      "Translation to 10+ languages",
+      "Database autofill",
+      "Seamless workspace integration"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Udio",
+    "description": "Create professional-quality music with AI.",
+    "longDescription": "Udio is an AI music generation platform that creates professional-quality songs from text prompts. It can generate full songs with vocals, instrumentals, and production across any genre. Perfect for creators, musicians, and content producers looking to create original music.",
+    "icon": "🎵",
+    "category": "music",
+    "platform": "Web",
+    "stars": 2100,
+    "forks": 180,
+    "price": "Free",
+    "isNew": true,
+    "author": "Udio",
+    "tags": [
+      "AI",
+      "Music",
+      "Audio"
+    ],
+    "language": "Python",
+    "website": "https://udio.com",
+    "whatsNew": [
+      "Full song generation with vocals",
+      "Genre-specific generation",
+      "Audio-to-audio remixing",
+      "Stem separation",
+      "Commercial usage rights"
+    ],
+    "features": [
+      "Text-to-music generation",
+      "Multi-genre support",
+      "Vocal and instrumental tracks",
+      "Song extension and remixing",
+      "High-quality audio output",
+      "Commercial licensing available"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Runway ML",
+    "description": "AI-powered video editing and generation tools.",
+    "longDescription": "Runway ML is a creative toolkit powered by AI that enables next-generation video creation. From text-to-video generation to advanced editing tools like motion tracking, green screen removal, and style transfer, Runway puts Hollywood-level production tools in everyone's hands.",
+    "icon": "🎬",
+    "category": "video",
+    "platform": "Web",
+    "stars": 4500,
+    "forks": 540,
+    "price": "$15/mo",
+    "author": "Runway",
+    "tags": [
+      "AI",
+      "Video",
+      "Editing"
+    ],
+    "language": "Python",
+    "website": "https://runwayml.com",
+    "whatsNew": [
+      "Gen-3 Alpha video model",
+      "Motion brush for precise control",
+      "Text-to-video generation",
+      "Advanced color grading AI",
+      "Multi-motion brush support"
+    ],
+    "features": [
+      "Text and image to video generation",
+      "AI-powered video editing suite",
+      "Green screen removal",
+      "Motion tracking and stabilization",
+      "Style transfer and effects",
+      "Collaborative editing workspace"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Julius AI",
+    "description": "AI data analyst that helps you analyze and visualize data.",
+    "longDescription": "Julius AI is an AI-powered data analysis platform that helps you understand your data through natural language conversations. Upload spreadsheets, CSVs, or connect databases, and Julius will help you clean, analyze, visualize, and extract insights from your data without writing code.",
+    "icon": "📊",
+    "category": "data",
+    "platform": "Web",
+    "stars": 1800,
+    "forks": 150,
+    "price": "Free",
+    "isNew": true,
+    "author": "Julius",
+    "tags": [
+      "AI",
+      "Data",
+      "Analytics"
+    ],
+    "language": "Python",
+    "website": "https://julius.ai",
+    "whatsNew": [
+      "Natural language data queries",
+      "Automatic chart generation",
+      "SQL database connections",
+      "Advanced statistical analysis",
+      "Export to multiple formats"
+    ],
+    "features": [
+      "Conversational data analysis",
+      "Automatic visualization",
+      "Data cleaning and transformation",
+      "Statistical analysis tools",
+      "Multi-format data import",
+      "Shareable reports and dashboards"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Pieces",
+    "description": "AI-powered code snippet manager and copilot.",
+    "longDescription": "Pieces is an AI-powered developer productivity tool that helps you save, enrich, search, and reuse code snippets across your workflow. With deep IDE integrations and on-device AI, it keeps your most useful code at your fingertips while maintaining privacy.",
+    "icon": "🧩",
+    "category": "devtools",
+    "platform": "macOS",
+    "stars": 2200,
+    "forks": 190,
+    "price": "Free",
+    "author": "Pieces",
+    "tags": [
+      "AI",
+      "Code",
+      "Snippets"
+    ],
+    "language": "Dart",
+    "website": "https://pieces.app",
+    "github": "https://github.com/pieces-app",
+    "whatsNew": [
+      "On-device AI copilot",
+      "Long-term memory across sessions",
+      "Workflow activity tracking",
+      "Multi-IDE support",
+      "Team snippet sharing"
+    ],
+    "features": [
+      "AI-powered snippet management",
+      "On-device processing for privacy",
+      "Cross-IDE integration",
+      "Automatic code enrichment",
+      "Long-term context memory",
+      "Team collaboration tools"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Bear",
+    "description": "Beautiful markdown notes app with AI suggestions.",
+    "longDescription": "Bear is a beautiful, flexible writing app for crafting notes, prose, and more. With its elegant interface, powerful markdown editing, and AI-powered suggestions, Bear is the perfect companion for writers and note-takers who value both form and function.",
+    "icon": "🐻",
+    "category": "ios",
+    "platform": "iOS",
+    "stars": 3900,
+    "forks": 320,
+    "price": "$2.99",
+    "author": "Shiny Frog",
+    "tags": [
+      "Notes",
+      "Markdown",
+      "iOS"
+    ],
+    "language": "Swift",
+    "website": "https://bear.app",
+    "whatsNew": [
+      "AI writing suggestions",
+      "New editor with tables support",
+      "Cross-device sync via iCloud",
+      "Custom themes and typography",
+      "Web clipper extension"
+    ],
+    "features": [
+      "Beautiful markdown editor",
+      "Nested tags for organization",
+      "Cross-device sync",
+      "Focus and typewriter modes",
+      "Export to multiple formats",
+      "Custom themes and typography"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "ChatGPT",
+    "description": "OpenAI's conversational AI assistant for any task.",
+    "longDescription": "ChatGPT by OpenAI is the world's most popular AI assistant, capable of understanding and generating human-like text for virtually any task. From writing and analysis to coding and creative work, ChatGPT has become an essential tool for millions of people worldwide.",
+    "icon": "💬",
+    "category": "web",
+    "platform": "Web",
+    "stars": 9500,
+    "forks": 1200,
+    "price": "Free",
+    "featured": true,
+    "author": "OpenAI",
+    "tags": [
+      "AI",
+      "Chat",
+      "GPT"
+    ],
+    "language": "Python",
+    "website": "https://chat.openai.com",
+    "github": "https://github.com/openai",
+    "whatsNew": [
+      "GPT-4o multimodal capabilities",
+      "Custom GPTs marketplace",
+      "Advanced data analysis",
+      "DALL-E image generation",
+      "Voice conversation mode",
+      "Memory and personalization"
+    ],
+    "features": [
+      "Natural language conversation",
+      "Code generation and debugging",
+      "Document analysis and summarization",
+      "Image understanding and generation",
+      "Custom GPT creation",
+      "API access for developers"
+    ]
+  }
+]

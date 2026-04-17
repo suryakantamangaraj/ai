@@ -1,4 +1,10 @@
+// @ts-nocheck
 import { PrismaClient } from '@prisma/client'
+const fs = require('fs')
+const path = require('path')
+
+const toolsJsonPath = path.join(__dirname, 'tools.json')
+const tools = JSON.parse(fs.readFileSync(toolsJsonPath, 'utf8'))
 
 const prisma = new PrismaClient()
 
@@ -18,39 +24,77 @@ async function main() {
     },
   })
 
-  // 2. Create foundational Tags
-  const aiTag = await prisma.tag.upsert({
-    where: { slug: 'ai' },
-    update: {},
-    create: { slug: 'ai', name: 'AI' }
-  })
+  // 2. Create foundational Tags & Migrate Tools
+  console.log(`Migrating ${tools.length} static tools...`)
   
+  for (const t of tools) {
+    // Upsert tags for this tool
+    const tagConnects = []
+    for (const tagName of t.tags) {
+      const slug = tagName.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+      const tag = await prisma.tag.upsert({
+        where: { slug },
+        update: {},
+        create: { slug, name: tagName }
+      })
+      tagConnects.push({ id: tag.id })
+    }
+
+    const toolSlug = t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    const screenshotsJson = t.screenshots ? JSON.stringify(t.screenshots) : null
+
+    await prisma.tool.upsert({
+      where: { slug: toolSlug },
+      update: {
+        name: t.name,
+        description: t.description,
+        longDescription: t.longDescription || '',
+        icon: t.icon,
+        category: t.category,
+        platform: t.platform,
+        stars: t.stars,
+        forks: t.forks || 0,
+        price: t.price,
+        website: t.website,
+        github: t.github,
+        language: t.language,
+        isFeatured: t.featured || false,
+        screenshots: screenshotsJson,
+        tags: {
+          connect: tagConnects
+        }
+      },
+      create: {
+        slug: toolSlug,
+        name: t.name,
+        description: t.description,
+        longDescription: t.longDescription || '',
+        icon: t.icon,
+        category: t.category,
+        platform: t.platform,
+        stars: t.stars,
+        forks: t.forks || 0,
+        price: t.price,
+        website: t.website,
+        github: t.github,
+        language: t.language,
+        authorId: adminUser.id,
+        isFeatured: t.featured || false,
+        screenshots: screenshotsJson,
+        tags: {
+          connect: tagConnects
+        }
+      }
+    })
+  }
+
+  // 3. Migrate some static prompts to database
   const devTag = await prisma.tag.upsert({
     where: { slug: 'developer' },
     update: {},
     create: { slug: 'developer', name: 'Developer' }
   })
 
-  // 3. Migrate some static tools to database
-  const cursorTool = await prisma.tool.upsert({
-    where: { slug: 'cursor' },
-    update: {},
-    create: {
-      slug: 'cursor',
-      name: 'Cursor',
-      description: 'The AI-first code editor. Build software faster with AI.',
-      longDescription: 'Cursor is an AI-first code editor built from the ground up to make developers incredibly productive...',
-      icon: '⚡',
-      category: 'devtools',
-      platform: 'macOS',
-      stars: 4250,
-      price: 'Free',
-      authorId: adminUser.id,
-      tags: { connect: [{ id: aiTag.id }, { id: devTag.id }] }
-    }
-  })
-
-  // 4. Migrate some static prompts to database
   const linuxPrompt = await prisma.prompt.upsert({
     where: { slug: 'act-as-linux-terminal' },
     update: {},
@@ -68,14 +112,14 @@ async function main() {
   })
 
   console.log("✅ Seed Data created Successfully.")
-  console.log("Gradual Migration Strategy: API Routes Should Be Created Next to Point to These DB Models Before Frontend Removes Static Arrays!")
 }
 
 main()
   .catch((e) => {
     console.error(e)
-    process.exit(1)
+    throw e;
   })
   .finally(async () => {
     await prisma.$disconnect()
   })
+

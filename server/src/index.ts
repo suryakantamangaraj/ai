@@ -6,6 +6,7 @@ import passport from './config/passport';
 
 import authRoutes from './routes/auth.routes';
 import userRoutes from './routes/user.routes';
+import toolRoutes from './routes/tool.routes';
 import { generalRateLimiter } from './middlewares/rateLimiter';
 
 dotenv.config();
@@ -29,6 +30,7 @@ app.use('/api', generalRateLimiter);
 // Routes
 app.use('/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/tools', toolRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });

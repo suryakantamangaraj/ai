@@ -52,23 +52,30 @@ model Tag {
 }
 
 model Tool {
-  id              String   @id @default(uuid())
-  slug            String   @unique
-  name            String
-  description     String
-  longDescription String?  @default("")
-  icon            String?
-  category        String
-  platform        String?
-  stars           Int      @default(0)
-  forks           Int      @default(0)
-  price           String?
-  website         String?
-  github          String?
-  language        String?
-  authorId        String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id               String   @id @default(uuid())
+  slug             String   @unique
+  name             String
+  description      String
+  longDescription  String?  @default("")
+  icon             String?
+  category         String
+  platform         String?
+  stars            Int      @default(0)
+  forks            Int      @default(0)
+  price            String?
+  website          String?
+  github           String?
+  language         String?
+  authorId         String
+  
+  // New Admin & Media Fields
+  isFeatured       Boolean  @default(false)
+  approvalStatus   String   @default("APPROVED") // PENDING, APPROVED, REJECTED
+  visibilityStatus String   @default("PUBLIC")   // PUBLIC, PRIVATE
+  screenshots      String?  // JSON string representing an array of URLs
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   author          User     @relation(fields: [authorId], references: [id])
   tags            Tag[]
