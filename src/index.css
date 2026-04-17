@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 7%;
+    --foreground: 210 40% 95%;
+
+    --card: 230 20% 12%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 230 20% 12%;
+    --popover-foreground: 210 40% 95%;
+
+    --primary: 263 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 20% 18%;
+    --secondary-foreground: 210 40% 90%;
+
+    --muted: 230 15% 16%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 263 50% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 15% 20%;
+    --input: 230 15% 20%;
+    --ring: 263 70% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 230 25% 9%;
+    --sidebar-foreground: 210 20% 75%;
+    --sidebar-primary: 263 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 20% 15%;
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 230 15% 18%;
+    --sidebar-ring: 263 70% 55%;
+
+    /* Custom tokens */
+    --gradient-purple-start: 263 70% 55%;
+    --gradient-purple-end: 271 81% 65%;
+    --glass-bg: 230 20% 12%;
+    --glass-border: 230 15% 22%;
+    --cosmic-glow: 263 70% 55%;
+  }
+
+  .light-mode {
+    --background: 0 0% 98%;
+    --foreground: 230 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 12%;
+
+    --primary: 263 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 10% 92%;
+    --secondary-foreground: 230 20% 20%;
+
+    --muted: 230 10% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 263 50% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 10% 85%;
+    --input: 230 10% 85%;
+    --ring: 263 70% 55%;
+
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 230 15% 35%;
+    --sidebar-primary: 263 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 10% 92%;
+    --sidebar-accent-foreground: 230 20% 20%;
+    --sidebar-border: 230 10% 88%;
+    --sidebar-ring: 263 70% 55%;
+
+    --gradient-purple-start: 263 70% 55%;
+    --gradient-purple-end: 271 81% 65%;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 230 10% 85%;
+    --cosmic-glow: 263 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--gradient-purple-start)),
+      hsl(var(--gradient-purple-end))
+    );
+  }
+
+  .glass-card {
+    background: hsl(var(--glass-bg) / 0.6);
+    border: 1px solid hsl(var(--glass-border) / 0.5);
+    backdrop-filter: blur(12px);
+  }
+
+  .glass-card-glow {
+    background: hsl(var(--glass-bg) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+
+  .glass-card-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--glow-angle, 0deg),
+      hsl(var(--cosmic-glow) / 0.05),
+      hsl(var(--gradient-purple-end) / 0.4),
+      hsl(var(--cosmic-glow) / 0.05),
+      hsl(var(--gradient-purple-start) / 0.3),
+      hsl(var(--cosmic-glow) / 0.05)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: glow-rotate 4s linear infinite;
+    pointer-events: none;
+  }
+
+  .cosmic-glow {
+    box-shadow: 0 0 40px hsl(var(--cosmic-glow) / 0.15),
+      0 0 80px hsl(var(--cosmic-glow) / 0.05);
+  }
+
+  .cosmic-glow-strong {
+    box-shadow: 0 0 30px hsl(var(--cosmic-glow) / 0.2),
+      0 0 60px hsl(var(--cosmic-glow) / 0.1),
+      0 0 120px hsl(var(--cosmic-glow) / 0.05);
+  }
+}
+
+@keyframes glow-rotate {
+  from {
+    --glow-angle: 0deg;
+  }
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes bubble-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15px, -20px) scale(1.05); }
+  50% { transform: translate(-10px, -35px) scale(0.95); }
+  75% { transform: translate(20px, -15px) scale(1.02); }
+}
+
+@keyframes bubble-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-20px, -25px) scale(1.08); }
+  66% { transform: translate(15px, -40px) scale(0.96); }
+}
+
+@keyframes bubble-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(25px, -15px) scale(0.97); }
+  50% { transform: translate(-15px, -30px) scale(1.06); }
+  80% { transform: translate(10px, -20px) scale(1.01); }
+}
