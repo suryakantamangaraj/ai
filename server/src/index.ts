@@ -7,6 +7,10 @@ import passport from './config/passport';
 import authRoutes from './routes/auth.routes';
 import userRoutes from './routes/user.routes';
 import toolRoutes from './routes/tool.routes';
+import reviewRoutes from './routes/review.routes';
+import communityRoutes from './routes/community.routes';
+import adminRoutes from './routes/admin.routes';
+import promptRoutes from './routes/prompt.routes';
 import { generalRateLimiter } from './middlewares/rateLimiter';
 
 dotenv.config();
@@ -31,6 +35,10 @@ app.use('/api', generalRateLimiter);
 app.use('/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/tools', toolRoutes);
+app.use('/api/community', communityRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/prompts', promptRoutes);
+app.use('/api', reviewRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });

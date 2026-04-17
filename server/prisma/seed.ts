@@ -89,27 +89,70 @@ async function main() {
   }
 
   // 3. Migrate some static prompts to database
-  const devTag = await prisma.tag.upsert({
-    where: { slug: 'developer' },
-    update: {},
-    create: { slug: 'developer', name: 'Developer' }
-  })
+  const promptsJsonPath = path.join(__dirname, 'prompts.json')
+  const prompts = JSON.parse(fs.readFileSync(promptsJsonPath, 'utf8'))
+  console.log(`Migrating ${prompts.length} static prompts...`)
 
-  const linuxPrompt = await prisma.prompt.upsert({
-    where: { slug: 'act-as-linux-terminal' },
-    update: {},
-    create: {
-      slug: 'act-as-linux-terminal',
-      title: 'Act as a Linux Terminal',
-      description: 'I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show.',
-      content: 'I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show...',
-      category: 'Technical',
-      type: 'code',
-      likes: 842,
-      authorId: adminUser.id,
-      tags: { connect: [{ id: devTag.id }] }
+  for (const p of prompts) {
+    const promptSlug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    
+    // Upsert tags for this prompt
+    const tagConnects = []
+    for (const tagName of p.tags) {
+      const slug = tagName.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+      const tag = await prisma.tag.upsert({
+        where: { slug },
+        update: {},
+        create: { slug, name: tagName }
+      })
+      tagConnects.push({ id: tag.id })
     }
-  })
+
+    const createdPrompt = await prisma.prompt.upsert({
+      where: { slug: promptSlug },
+      update: {
+        title: p.title,
+        description: p.description,
+        content: p.prompt,
+        category: p.category,
+        type: p.type || 'text',
+        likes: p.likes,
+        visibilityStatus: 'PUBLIC',
+        tags: {
+          connect: tagConnects
+        }
+      },
+      create: {
+        slug: promptSlug,
+        title: p.title,
+        description: p.description,
+        content: p.prompt,
+        category: p.category,
+        type: p.type || 'text',
+        likes: p.likes,
+        authorId: adminUser.id,
+        visibilityStatus: 'PUBLIC',
+        tags: {
+          connect: tagConnects
+        }
+      }
+    })
+
+    // Create an initial version if not exists
+    const existingVersions = await prisma.promptVersion.findMany({
+      where: { promptId: createdPrompt.id }
+    })
+    
+    if (existingVersions.length === 0) {
+      await prisma.promptVersion.create({
+        data: {
+          promptId: createdPrompt.id,
+          content: p.prompt,
+          versionNumber: 1
+        }
+      })
+    }
+  }
 
   console.log("✅ Seed Data created Successfully.")
 }

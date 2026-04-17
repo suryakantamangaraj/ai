@@ -36,3 +36,43 @@ export const requireAuth = async (req: AuthRequest, res: Response, next: NextFun
     return res.status(401).json({ error: 'Authentication failed' });
   }
 };
+export const optionalAuth = async (req: AuthRequest, res: Response, next: NextFunction) => {
+  try {
+    const token = req.cookies?.accessToken || req.headers.authorization?.split(' ')[1];
+
+    if (!token) {
+      return next();
+    }
+
+    const decoded = verifyAccessToken(token);
+
+    if (!decoded) {
+      return next();
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: decoded.userId }
+    });
+
+    if (user) {
+      req.userId = user.id;
+      req.user = user;
+    }
+    next();
+  } catch (error) {
+    next();
+  }
+};
+
+export const requireAdmin = async (req: AuthRequest, res: Response, next: NextFunction) => {
+  // ensure requireAuth has run first
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
+
+  if (req.user.role !== 'ADMIN') {
+    return res.status(403).json({ error: 'Admin access required' });
+  }
+
+  next();
+};
